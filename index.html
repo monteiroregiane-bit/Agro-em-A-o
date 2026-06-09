@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="pt-br">
+<head> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>AGRO EM AÇÃO | Sustentabilidade</title> 
+    <style> 
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;900&display=swap');
+
+        :root { 
+            --verde-escuro: #1b5e20;       /* Verde escuro forte para botões e título */
+            --verde-medio: #388e3c;        /* Verde intermediário para detalhes */
+            --verde-claro: #e8f5e9;        /* Verde bem claro para blocos */
+            --bege-claro: #f5eee0;         /* Bege claro para blocos alternados */
+            --bege-medio: #e9dcc0;         /* Bege mais forte para destaques */
+            --texto-escuro: #2d2d2d;       /* Cor padrão do texto */
+            --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --borda-arredondada: 16px;
+            --light: #f8f9fa;
+        } 
+
+        body::before { 
+            content: ""; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(225, 238, 229, 0.82); 
+            z-index: -1; 
+            pointer-events: none;
+        } 
+
+        body { 
+            /* ====== SUA IMAGEM AQUI - FUNDO DA PÁGINA ====== */
+            background-image: url('https://img.magnific.com/fotos-gratis/bela-natureza-retro-com-campo_23-2149681473.jpg?semt=ais_hybrid&w=1920&q=85');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            background-color: var(--light);
+            position: relative; 
+            z-index: 1; 
+            font-family: 'Nunito', sans-serif; 
+            line-height: 1.7; 
+            color: var(--texto-escuro); 
+            margin: 0; 
+            padding: 0; 
+            min-height: 100vh;
+            padding-top: 80px; /* Espaço para os botões fixos */
+        } 
+
+        /* ====== SUA IMAGEM AQUI - TOPO DA PÁGINA ====== */
+        .imagem-topo {
+            width: 100%;
+            height: clamp(200px, 50vw, 380px);
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            margin-top: 0;
+            background-image: url('https://img.magnific.com/fotos-gratis/bela-natureza-retro-com-campo_23-2149681473.jpg?semt=ais_hybrid&w=1920&q=85');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .imagem-topo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0;
+        }
+
+        header { 
+            background-color: rgba(174, 209, 180, 0.85); 
+            color: #06503d !important; 
+            text-align: center;
+            padding: 2.5rem 1rem 4rem;  
+            box-shadow: var(--sombra-suave);      
+        }  
+
+        /* TÍTULO EM VERDE ESCURO FORTE */
+        header h1 {
+            margin: 0 0 0.3rem 0;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: var(--verde-escuro) !important;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        header h2 {
+            margin: 0 0 0.5rem 0;
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--verde-escuro) !important;
+            opacity: 0.95;
+            border: none !important;
+            padding: 0 !important;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        header p {
+            margin: 0;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 600;
+            color: var(--verde-escuro) !important;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .container {            
+            max-width: 900px;            
+            margin: 20px auto;            
+            padding: 25px 20px;            
+            border-radius: var(--borda-arredondada);        
+        }        
+        
+        h2 {            
+            color: var(--verde-escuro) !important;            
+            border-bottom: 2px solid var(--verde-medio);            
+            padding-bottom: 6px;
+            scroll-margin-top: 20px;
+            font-weight: 700;
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            margin-top: 0;
+            font-family: 'Nunito', sans-serif;
+            border-radius: 8px;
+        } 
+
+        h3 {
+            color: var(--verde-escuro) !important;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem 0;
+            font-family: 'Nunito', sans-serif;
+        }       
+        
+        ul, ol {            
+            padding-left: 22px; 
+            margin: 0.8rem 0;       
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+        }
+
+        .bloco-verde {
+            background-color: var(--verde-claro) !important;
+            padding: 22px;
+            margin: 18px 0;
+            border-radius: var(--borda-arredondada);
+            box-shadow: var(--sombra-suave);
+            transition: transform 0.2s ease;
+        }
+
+        .bloco-verde:hover, .bloco-bege:hover {
+            transform: translateY(-3px);
+        }
+
+        .bloco-bege {
+            background-color: var(--bege-claro) !important;
+            padding: 22px;
+            margin: 18px 0;
+            border-radius: var(--borda-arredondada);
+            box-shadow: var(--sombra-suave);
+            transition: transform 0.2s ease;
+        }
+        
+        .highlight {            
+            background-color: var(--bege-medio) !important;            
+            border-left: 5px solid var(--verde-escuro);            
+            padding: 18px;            
+            margin: 20px 0;  
+            border-radius: 8px;      
+        } 
+
+        .dados-fato {
+            background-color: #ffffff !important;
+            border: 1px solid var(--verde-medio);
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+            text-align: center;
+            font-weight: 600;
+            color: var(--verde-escuro) !important;
+        }        
+        
+        .footer {            
+            text-align: center;            
+            margin-top: 20px;            
+            font-size: 0.95em;            
+            color: #444;
+            padding: 1.2rem;
+            background-color: rgba(255,255,255,0.7);
+            border-radius: var(--borda-arredondada) var(--borda-arredondada) 0 0;
+        }
+
+        /* ==============================================
+           BOTÕES FIXOS NO TOPO - VERDE ESCURO E LETRA BRANCA
+           ============================================== */
+        .botoes-navegacao {
+            position: fixed; /* Fixa no topo, não sai do lugar */
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin: 0;
+            padding: 0.8rem 0.5rem;
+            background-color: var(--verde-escuro); /* Fundo da barra todo verde escuro */
+            z-index: 9999; /* Fica por cima de tudo */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .btn {
+            background-color: var(--verde-escuro) !important; /* Fundo do botão verde escuro */
+            color: #ffffff !important; /* ESCRITA BRANCA, bem visível */
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .btn:hover {
+            background-color: #2e7d32 !important; /* Fica um pouco mais claro ao passar o mouse */
+            color: #ffffff !important; /* Continua branco */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .btn-externo {
+            background-color: var(--verde-escuro) !important;
+            color: #ffffff !important;
+        }
+
+        .btn-externo:hover {
+            background-color: #2e7d32 !important;
+            color: #ffffff !important;
+        }
+
+        .btn-topo {
+            display: inline-block;
+            margin-top: 1rem;
+            border-radius: 20px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding-top: 110px; /* Ajusta o espaço para celular */
+            }
+            .container {
+                padding: 15px 10px;
+            }
+            .bloco-verde, .bloco-bege {
+                padding: 18px 15px;
+            }
+            .botoes-navegacao {
+                gap: 6px;
+                padding: 0.6rem 0.3rem;
+            }
+            .btn {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="imagem-topo">
+        <img alt="Campo agrícola bonito, natureza e produção rural" loading="lazy">
+    </div>
+    
+    <header>        
+        <h1 id="topo">AGRO EM AÇÃO</h1>        
+        <h2>SUSTENTABILIDADE</h2>
+        <p>SE LIGA NO MANEJO E DESCARTE</p>    
+    </header>
+
+    <!-- BOTÕES FIXOS NO TOPO -->
+    <div class="botoes-navegacao">
+        <a href="#importancia" class="btn">Importância</a>
+        <a href="#manejo" class="btn">Manejo e Armazenamento</a>
+        <a href="#descarte" class="btn">Descarte Correto</a>
+        <a href="#sistema-campo-limpo" class="btn">Sistema Campo Limpo</a>
+        <a href="#praticas" class="btn">Boas Práticas</a>
+        <a href="https://www.sistemacampolimpo.org.br/" target="_blank" rel="noopener" class="btn btn-externo">Site Oficial</a>
+        <a href="https://www.sistemacampolimpo.org.br/inpev/quem-somos/" target="_blank" rel="noopener" class="btn btn-externo">inpEV</a>
+        <a href="https://www.embrapa.br/" target="_blank" rel="noopener" class="btn btn-externo">Embrapa</a>
+    </div>
+    
+    <div class="container">        
+        <div class="bloco-verde">
+            <h2 id="importancia">A Importância da Sustentabilidade Agrícola</h2>        
+            <p>O uso responsável de defensivos agrícolas garante a segurança alimentar, protege a saúde dos trabalhadores rurais e preserva os recursos naturais, como o solo e as fontes de água. A agricultura sustentável alia produção e conservação, seguindo a legislação vigente — como a <strong>Lei nº 12.305/2010 (Política Nacional de Resíduos Sólidos)</strong> — que torna a logística reversa obrigatória no Brasil.</p> 
+
+            <p>Com ações coordenadas entre agricultores, indústria, distribuição e poder público, o país se tornou referência mundial na destinação correta de embalagens, provando que é possível produzir com responsabilidade ambiental.</p>        
+        </div>
+        
+        <div class="bloco-bege">
+            <h2 id="manejo">1. Manejo e Armazenamento Seguro</h2>        
+            <p>Um depósito organizado é a base da segurança na propriedade rural. As diretrizes técnicas e legais incluem:</p>        
+            <ul>            
+                <li><strong>Localização:</strong> Instale o depósito a pelo menos 15 metros de distância de habitações, poços, cursos d’água, criações e locais de armazenamento de alimentos ou ração.</li>            
+                <li><strong>Estrutura:</strong> Construção em alvenaria ou material não inflamável, com piso impermeável, cobertura, ventilação adequada e sistema de contenção para evitar vazamentos e escoamento de resíduos.</li>            
+                <li><strong>Organização:</strong> Mantenha os produtos sobre estrados ou prateleiras de metal, separados por classe toxicológica e categoria (inseticidas, herbicidas, fungicidas), com etiquetas visíveis e legíveis.</li>            
+                <li><strong>Segurança e Acesso:</strong> Acesso restrito apenas a pessoas treinadas, com placas de sinalização de risco e uso obrigatório de <strong>EPIs (Equipamentos de Proteção Individual)</strong> durante toda a manipulação.</li>
+                <li><strong>Estoque:</strong> Armazene apenas a quantidade necessária, seguindo rigorosamente o prazo de validade e orientações do fabricante.</li>        
+            </ul>        
+        </div>
+        
+        <div class="bloco-verde">
+            <h2 id="descarte">2. Descarte Correto de Embalagens</h2>        
+            <p>O descarte incorreto é crime ambiental. A legislação brasileira determina a logística reversa obrigatória, operacionalizada nacionalmente pelo <strong>Sistema Campo Limpo</strong>. O processo deve seguir estes passos fundamentais:</p>        
+            <ol>            
+                <li><strong>Tríplice Lavagem:</strong> Esvazie totalmente a embalagem no pulverizador. Adicione água limpa correspondente a 1/4 do volume, tampe bem e agite por 30 segundos. Despeje essa água no próprio equipamento de aplicação (aproveitamento total) e repita o procedimento por mais duas vezes.</li>            
+                <li><strong>Perfuração:</strong> Após lavada, fure o fundo da embalagem para garantir que ela nunca seja reutilizada para outros fins.</li>            
+                <li><strong>Separação:</strong> Guarde as tampas separadas dos recipientes. Embalagens flexíveis, sacos e caixas não laváveis devem ser armazenadas em sacos de resgate próprios para esse fim.</li>            
+                <li><strong>Devolução:</strong> Leve os materiais até a unidade de recebimento mais próxima ou ponto de coleta, em até <strong>1 ano após a compra</strong>, apresentando a nota fiscal.</li>        
+            </ol>  
+
+            <div class="dados-fato">
+                📊 Dados do Sistema Campo Limpo: Mais de 95% das embalagens recebidas são recicladas e 5% têm destinação energética segura.
+            </div>
+            
+            <div class="highlight">            
+                <strong>Você sabia?</strong> O Brasil é referência mundial nesse processo. Desde 2002, milhões de toneladas de embalagens foram retiradas do meio ambiente. O <strong>inpEV</strong> (Instituto Nacional de Processamento de Embalagens Vazias) é a entidade gestora responsável por coordenar todo esse ciclo, transformando resíduos em novos produtos como dutos, canos e materiais de construção, fechando o ciclo da economia circular.        
+            </div>
+        </div>
+
+        <div class="bloco-bege">
+            <h2 id="sistema-campo-limpo">3. O que é o Sistema Campo Limpo?</h2>
+            <p>É o modelo brasileiro de logística reversa, reconhecido mundialmente, que reúne fabricantes, distribuidores, agricultores e poder público para garantir a destinação correta de embalagens vazias e sobras de defensivos agrícolas.</p>
+
+            <h3>Como funciona:</h3>
+            <ul>
+                <li>O agricultor devolve as embalagens na unidade de recebimento.</li>
+                <li>O inpEV coleta, transporta e encaminha para reciclagem ou incineração segura.</li>
+                <li>Os materiais reciclados geram novos produtos, reinvestindo o valor no próprio sistema.</li>
+            </ul>
+
+            <p>Além disso, o sistema promove educação ambiental e capacitação, levando conhecimento a professores, alunos e comunidades rurais.</p>
+        </div>
+        
+        <div class="bloco-verde">
+            <h2 id="praticas">4. Boas Práticas e Alternativas Sustentáveis</h2>        
+            <p>Além do descarte adequado, a propriedade sustentável envolve a redução progressiva dos impactos e a adoção de tecnologias mais limpas, conforme orientações da <strong>Embrapa</strong> e do MAPA:</p>        
+            <ul>            
+                <li><strong>Uso de Bioinsumos:</strong> Incentivar o controle biológico, uso de extratos vegetais, microrganismos benéficos e práticas orgânicas sempre que possível, reduzindo a dependência de produtos químicos.</li>            
+                <li><strong>Calibragem de Equipamentos:</strong> Verifique e ajuste os pulverizadores regularmente. A aplicação correta evita desperdício, protege a cultura e reduz contaminação ambiental.</li>            
+                <li><strong>Manejo Integrado de Pragas (MIP):</strong> Combinação de métodos de controle (cultural, biológico, químico) para manter pragas e doenças em níveis que não prejudiquem a produção, com menor impacto possível.</li>
+                <li><strong>Legislação e Atualização:</strong> Consulte sempre as normas técnicas, receituário agronômico e materiais educativos oficiais. A tecnologia agrícola evolui constantemente!</li>        
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="#topo" class="btn btn-topo">⬆ Voltar ao Topo</a>
+        </div>
+    </div>    
+    <div class="footer">        
+        <p>© 2026 AGRO EM AÇÃO | Compromisso com o Futuro: Produzir com responsabilidade ambiental, social e segurança.</p>    
+    </div>
+</body>
+</html>
